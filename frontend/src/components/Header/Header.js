@@ -1,40 +1,47 @@
+import React from 'react'
+import {
+  Container,
+  Form,
+  FormControl,
+  Nav,
+  Navbar,
+  NavDropdown,
+} from "react-bootstrap";
+import { Link } from 'react-router-dom';
 
-import { Navbar, Nav, Button, 
-    Form, FormControl, 
-    NavDropdown, Container} 
-    from 'react-bootstrap';
 
-function Header() {
+const Header = () => {
   return (
-    // <Navbar bg="light" expand="lg" >
-        <Navbar bg="primary" expand="lg" variant = "dark" >
-        <Container>
-        <Navbar.Brand href="/">Note Zipper</Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className='m-auto'>
-        <Form inline>
-            <FormControl type="text" placeholder="Search" className='mr-sm-2'/>
-            {/* <Button variant="outline-success" >Search</Button> */}
-        </Form>
+    <Navbar bg="primary" expand="lg" variant="dark">
+      <Container>
+        <Navbar.Brand>
+          <Link to="/">React Notes</Link>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="m-auto">
+            <Form inline>
+              <FormControl
+                type="text"
+                placeholder="search"
+                className="mr-sm-2"
+              />
+            </Form>
+          </Nav>
+          <Nav>
+            <Nav.Link>
+              <Link to="/mynotes">My Notes</Link>
+            </Nav.Link>
+            <NavDropdown title="More" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">My Profile</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">Log out</NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
+}
 
-        </Nav>
-      
-        <Nav>
-          <Nav.Link href="#home">My Notes</Nav.Link>
-          <NavDropdown title="Wei Wu" id="basic-nav-dropdown">
-            <NavDropdown.Item href="#action/3.1">My Profile</NavDropdown.Item>
-
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">Log out</NavDropdown.Item>
-          </NavDropdown>
-        </Nav>
-
-      </Navbar.Collapse>
-    </Container>
-
-  </Navbar>
-  )
-};
-
-export default Header;
+export default Header
