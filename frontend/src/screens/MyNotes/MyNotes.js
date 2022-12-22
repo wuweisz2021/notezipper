@@ -3,7 +3,7 @@ import React from 'react'
 const MyNotes = () => {
   return (
     <hi>
-      My Notes
+      My Notes is nice.
     </hi>
   )
 }
