@@ -1,5 +1,13 @@
 # Getting Started with Create React App
 
+npm i axios
+npm i react-bootstrap
+npm i react-router-dom
+npm i react-redux
+npm i react-markdown
+npm i redux-thunk
+npm i redux-devtools-extension
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
