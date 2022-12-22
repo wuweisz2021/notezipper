@@ -4,12 +4,22 @@ import { Navbar, Nav, Button,
     NavDropdown, Container} 
     from 'react-bootstrap';
 
+    import React from 'react';
+import {Link,useNavigate} from 'react-router-dom';
+
+
 function Header() {
+
+  const history = useNavigate();
+  
   return (
     // <Navbar bg="light" expand="lg" >
         <Navbar bg="primary" expand="lg" variant = "dark" >
         <Container>
         <Navbar.Brand href="/">Note Zipper</Navbar.Brand>
+        {/* <Navbar>
+          <link to="/">Note Zipper</link>
+        </Navbar> */}
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className='m-auto'>
@@ -21,12 +31,18 @@ function Header() {
         </Nav>
       
         <Nav>
-          <Nav.Link href="#home">My Notes</Nav.Link>
+          <Nav.Link href="/mynotes">
+            <link to="/mynotes"></link>
+            My Notes</Nav.Link>
           <NavDropdown title="Wei Wu" id="basic-nav-dropdown">
-            <NavDropdown.Item href="#action/3.1">My Profile</NavDropdown.Item>
+            <NavDropdown.Item href="/MyProfile">My Profile</NavDropdown.Item>
 
             <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">Log out</NavDropdown.Item>
+            <NavDropdown.Item 
+            onClick={() => {localStorage.removeItem('userInfo');
+          history("/")
+        }} 
+            >Log out</NavDropdown.Item>
           </NavDropdown>
         </Nav>
 
